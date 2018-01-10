@@ -1,0 +1,1 @@
+This project familiarizes the student with writing shell scripts.
