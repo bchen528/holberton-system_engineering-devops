@@ -1,2 +1,2 @@
-sudo apt-get install mplayer
+#!/bin/bash
 mplayer -vo caca starwarsiv.mp4
