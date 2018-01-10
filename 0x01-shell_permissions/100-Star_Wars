@@ -1,2 +1,2 @@
-sudo apt-get install mplayer
-mplayer -vo caca starwarsiv.mp4
+#!/bin/bash
+telnet towel.blinkenlights.nl
