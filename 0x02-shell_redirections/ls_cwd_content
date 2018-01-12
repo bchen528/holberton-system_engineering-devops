@@ -1,0 +1,14 @@
+total 96
+-rwxr--r--  1 beckychen  staff  32 Jan 12 09:32 0-hello_world
+-rwxr--r--  1 beckychen  staff  28 Jan 12 10:10 1-confused_smiley
+-rwxr--r--  1 beckychen  staff  29 Jan 12 10:42 2-hellofile
+-rwxr--r--  1 beckychen  staff  40 Jan 12 10:48 3-twofiles
+-rwxr--r--  1 beckychen  staff  33 Jan 12 10:50 4-lastlines
+-rwxr--r--  1 beckychen  staff  33 Jan 12 10:57 5-firstlines
+-rwxr--r--  1 beckychen  staff  40 Jan 12 11:16 6-third_line
+-rwxr--r--  1 beckychen  staff  38 Jan 12 11:14 6-third_line~
+-rwxr--r--  1 beckychen  staff  35 Jan 12 11:20 8-cwd_state
+-rw-r--r--  1 beckychen  staff  12 Jan 12 11:18 8-cwd_state~
+-rw-r--r--  1 beckychen  staff  21 Jan 12 10:59 iacta
+-rw-r--r--  1 beckychen  staff  20 Jan 12 10:58 iacta~
+-rw-r--r--  1 beckychen  staff   0 Jan 12 11:20 ls_cwd_content
