@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -d ":" -f1 -f6 ./cte/password | sort 
+cut -d : -f 1,6 ./cte/password | sort
