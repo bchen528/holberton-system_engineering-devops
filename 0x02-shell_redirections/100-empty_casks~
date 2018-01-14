@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f,d -empty | cut -d / . | sort
+find . -type f -empty
