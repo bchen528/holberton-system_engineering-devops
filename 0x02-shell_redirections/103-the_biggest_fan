@@ -1,2 +1,2 @@
 #!/bin/bash
-cat access.log | cut -d ' ' -f 1 | sort
+cat access.log | cut -d ' ' -f 1 | sort | uniq `
