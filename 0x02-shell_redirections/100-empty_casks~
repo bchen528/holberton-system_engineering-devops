@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type fd -empty | ls | tr '\n' 
+find . -type f,d -empty | cut -d / . | sort
