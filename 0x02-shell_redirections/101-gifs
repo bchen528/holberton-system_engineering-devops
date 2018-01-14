@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -regex -name "*.jpg"
+find . -type f -iname "*.gif" -printf "%f\n" | sort --key=1.12
