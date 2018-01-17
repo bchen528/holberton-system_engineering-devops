@@ -1,2 +1,0 @@
-#!/bin/bash
-echo $((printf "%o\n" ((5#$WATER)+(5#$STIR))))
