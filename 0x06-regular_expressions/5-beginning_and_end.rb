@@ -1,8 +1,2 @@
-#!/usr/bin/ruby
-ARGV.each do |a|
-  matches = a.scan(/^h.n$/)
-  matches.each do |item|
-    print item
-  end
-  puts
-end
+#!/usr/bin/env ruby
+puts ARGV[0].scan(/^h.n$/).join
