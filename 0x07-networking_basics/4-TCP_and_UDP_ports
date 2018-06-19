@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-netstat -an -p tcp
+netstat -lp
