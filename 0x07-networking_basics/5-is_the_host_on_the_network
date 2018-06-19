@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ $# -eq 0 ]
+then
+    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+else
+    echo "$1" | xargs ping -c 5
+fi
