@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# a Bash script that configures a new Ubuntu machine that installs nginx on web-01 server, nginx listens to port 80, return a page that contains the string Holberton School when querying Nginx at its root / with a GET request (requesting a page) using curl
+ssh ubuntu@35.231.59.48 | sudo apt-get -y install nginx
+echo "Holberton School" > curl 35.231.59.48
