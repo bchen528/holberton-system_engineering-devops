@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Configure your Nginx server so that /redirect_me is redirecting to another page
+sudo sed -i 's/try_files $uri $uri\/ =404;/return 301 www.google.com;/g' /etc/nginx/sites-available/default
+sudo sed -i 's/location \/ {/location \/redirect_me \{/g' /etc/nginx/sites-available/default
