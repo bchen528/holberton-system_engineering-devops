@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Configure your Nginx server so that /redirect_me is redirecting to another page
-echo "Holberton School for the win!" | sudo tee /usr/share/nginx/html/index.html > /dev/null
-sudo sed -i "s|location / {|location /redirect_me {|g" /etc/nginx/sites-enabled/default
-sudo sed -i "s|try_files $uri $uri/ =404;|return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;|g" /etc/nginx/sites-enabled/default
+sed -i "s|location / {|location /redirect_me {|g" /etc/nginx/sites-enabled/default
+sed -i "s|try_files $uri $uri/ =404;|return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;|g" /etc/nginx/sites-enabled/default
+service nginx restart
