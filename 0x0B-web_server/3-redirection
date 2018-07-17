@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Configure your Nginx server so that /redirect_me is redirecting to another page
 apt-get -y install nginx
-echo "Holberton School for the win!" | tee /usr/share/nginx/html/index.html > /dev/null
+echo "Holberton School" | tee /usr/share/nginx/html/index.html > /dev/null
 service nginx restart
 
 sed -i "s|location / {|location /redirect_me {|g" /etc/nginx/sites-available/default
