@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Configure your Nginx server to have a custom 404 page that contains the string Ceci n'est pas une page
-NEW_STRING="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
 
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html > /dev/null
+NEW_STRING="\\\terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}\n"
+
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html > /dev/null
 sudo sed -i "37i $NEW_STRING" /etc/nginx/sites-available/default
 sudo service nginx restart
