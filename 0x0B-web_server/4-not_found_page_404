@@ -8,8 +8,8 @@ sed -i "s|location / {|location /redirect_me {|g"  /etc/nginx/sites-available/de
 sed -i "s|try_files \$uri \$uri/ =404;|return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;|g" /etc/nginx/sites-available/default
 service nginx restart
 
-NEW_STRING="\\\t#location = /404.html {\n\t#\troot /usr/share/nginx/html;\n\t#}\n"
+NEW_STRING="\\\t#error_page 404 /custom_404.html;\n\t#location = /custom_404.html {\n\t#\troot /usr/share/nginx/html;\n\t#\tinternal;\n\t#}\n"
 
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html > /dev/null
-sed -i "44i $NEW_STRING" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | tee /usr/share/nginx/html/custom_404.html > /dev/null
+sed -i "43i $NEW_STRING" /etc/nginx/sites-available/default
 service nginx restart
