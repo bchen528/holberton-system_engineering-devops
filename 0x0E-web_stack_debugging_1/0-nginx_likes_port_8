@@ -2,4 +2,4 @@
 # ensure Nginx is listening to port 80
 
 sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo service restart nginx
+sudo service nginx restart
