@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+# configure web-02 to be identical to web-01, add a custom Nginx response header
 sudo apt-get update
 apt-get -y install nginx
 NEW_STRING="\\\tlocation / {\n\t\tadd_header X-Served-By \$hostname;\n\t}\n"
