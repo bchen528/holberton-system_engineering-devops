@@ -2,6 +2,6 @@
 # configure web-02 to be identical to web-01, add a custom Nginx response header
 sudo apt-get update
 apt-get -y install nginx
-NEW_STRING="\\\tlocation / {\n\t\tadd_header X-Served-By $HOSTNAME;\n\t}\n"
+NEW_STRING="\\\tlocation / {\n\t\ttry_files \$uri \$uri/ =404;\n\t\tadd_header X-Served-By $HOSTNAME;\n\t}\n"
 sudo sed -i "42i $NEW_STRING" /etc/nginx/sites-available/default
 sudo service nginx restart
