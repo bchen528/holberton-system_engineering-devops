@@ -1,9 +1,3 @@
 #!/usr/bin/env bash
 # run the whoami command under the user passed as an argument
-if id -nu "$1" >/dev/null 2>&1
-then
-    id -nu "$1"
-else
-    useradd "$1"
-    id -nu "$1"
-fi
+sudo -u $1 "whoami"
