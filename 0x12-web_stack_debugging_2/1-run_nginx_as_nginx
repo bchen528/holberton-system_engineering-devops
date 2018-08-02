@@ -4,6 +4,6 @@ sudo pkill -f apache2
 chown nginx:nginx /etc/nginx/nginx.conf
 chmod 700 /etc/nginx/nginx.conf
 sudo sed -i "s|#user www-data|user nginx|g" /etc/nginx/nginx.conf
-sudo sed -i "s|listen 80 |listen 8080|g" /etc/nginx/sites-available/default
+sudo sed -i "s|listen 80|listen 8080|g" /etc/nginx/sites-available/default
 sudo sed -i "s|80 default_server ipv6only=on|8080 default_server ipv6only=on|g" /etc/nginx/sites-available/default
 sudo -u nginx service nginx start
