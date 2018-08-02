@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# configures the container where nginx must be running as nginx user and nginx must be listening on all active IPs on port 8080
+# configures the container where nginx must be running as nginx user 
 pkill -f apache2
 chown nginx:nginx /etc/nginx/nginx.conf
 chmod 700 /etc/nginx/nginx.conf
