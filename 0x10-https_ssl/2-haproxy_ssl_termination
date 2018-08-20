@@ -20,7 +20,6 @@ global
 	ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:RSA+AESGCM:RSA+AES:!aNULL:!MD5:!DSS
 	ssl-default-bind-options no-sslv3
 
-	tune.ssl.default-dh-param 2048
 defaults
 	log	global
 	mode	http
@@ -45,12 +44,12 @@ frontend www-http
 	 default_backend web_back
 
 frontend www-https
-	  bind *:443 ssl crt /etc/haproxy/ssl/www.beckers.website.pem
-	   reqadd X-Forwarded-Proto:\ https
-	    default_backend web_back
+	 bind *:443 ssl crt /etc/haproxy/ssl/www.beckers.website.pem
+	 reqadd X-Forwarded-Proto:\ https
+	 default_backend web_back
 
 backend web_back
 	redirect scheme https if !{ ssl_fc }
 	balance roundrobin
 	server 314-web-01 35.231.59.48:80 check
-	server 314-web-02 35.237.144.156:80 check
+	server 314-web-02 35.237.55.203:80 check
