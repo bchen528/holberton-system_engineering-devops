@@ -3,10 +3,10 @@
 returns information about his/her TODO list progress for a
 given employee ID using a REST API and export data in the JSON format
 """
-from collections import OrderedDict
-import json
-import requests
 from sys import argv
+import json
+from collections import OrderedDict
+import requests
 
 
 def get_todo_json():
@@ -18,14 +18,14 @@ def get_todo_json():
                           'userId={}'.format(argv[1]))
     try:
         user_dict = r_user.json()
-        task_dict = r_todo.json()
+        task_list = r_todo.json()
         data = {}
         data['{}'.format(user_dict["id"])] = []
-        for task in task_dict:
+        for task in task_list:
             a_dict = OrderedDict()
-            a_dict["task"] = '{}'.format(task["title"])
-            a_dict["completed"] = '{}'.format(task["completed"])
-            a_dict["username"] = '{}'.format(user_dict["username"])
+            a_dict["task"] = task["title"]
+            a_dict["completed"] = task["completed"]
+            a_dict["username"] = user_dict["username"]
             data['{}'.format(user_dict["id"])].append(a_dict)
         with open("{}.json".format(argv[1]), "w") as jsonfile:
             json.dump(data, jsonfile)
