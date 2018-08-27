@@ -3,6 +3,7 @@
 returns information about his/her TODO list progress for a
 given employee ID using a REST API and export data in the JSON format
 """
+from collections import OrderedDict
 import json
 import requests
 from sys import argv
@@ -27,7 +28,7 @@ def get_todo_json():
                 "username": '{}'.format(user_dict["username"])
             })
         with open("{}.json".format(argv[1]), "w") as jsonfile:
-            json.dump(data, jsonfile)
+            json.dump(OrderedDict(data), jsonfile)
             '''
             for task in task_dict:
                 f.writerow([user_dict["id"], user_dict["username"],
