@@ -18,7 +18,7 @@ def get_todo_csv():
     try:
         user_dict = r_user.json()
         task_dict = r_todo.json()
-        with open("USER_ID.csv", "w") as csvfile:
+        with open("{}.csv".format(argv[1]), "w") as csvfile:
             f = csv.writer(csvfile, delimiter=',', quoting=csv.QUOTE_ALL)
             for task in task_dict:
                 f.writerow([user_dict["id"], user_dict["username"],
