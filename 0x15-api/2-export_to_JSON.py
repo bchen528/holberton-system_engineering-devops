@@ -22,19 +22,15 @@ def get_todo_json():
         data = {}
         data['{}'.format(user_dict["id"])] = []
         for task in task_dict:
-            data['{}'.format(user_dict["id"])].append({
-                "task": '{}'.format(task["title"]),
-                "completed": '{}'.format(task["completed"]),
-                "username": '{}'.format(user_dict["username"])
-            })
+            a_dict = OrderedDict()
+            a_dict["task"] = '{}'.format(task["title"])
+            a_dict["completed"] = '{}'.format(task["completed"])
+            a_dict["username"] = '{}'.format(user_dict["username"])
+            data['{}'.format(user_dict["id"])].append(a_dict)
         with open("{}.json".format(argv[1]), "w") as jsonfile:
-            json.dump(OrderedDict(data), jsonfile)
-            '''
-            for task in task_dict:
-                f.writerow([user_dict["id"], user_dict["username"],
-            task["completed"], task["title"]])
-            '''
+            json.dump(data, jsonfile)
     except:
         pass
+
 if __name__ == "__main__":
     get_todo_json()
