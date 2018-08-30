@@ -5,7 +5,6 @@ the titles of all hot articles for a given subreddit. If no results are found
 for the given subreddit, return None
 """
 from requests import get
-from sys import argv
 
 
 def recurse(subreddit, hot_list=[], after=None):
