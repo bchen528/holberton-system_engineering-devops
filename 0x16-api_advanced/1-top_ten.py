@@ -1,15 +1,14 @@
 #!/usr/bin/python3
 """
-queries the Reddit API and returns the number of subscribers (not active users,
-total subscribers) for a given subreddit. If an invalid subreddit is given,
-return 0
+queries the Reddit API and prints the titles of the first
+10 hot posts listed for a given subreddit
 """
 from requests import get
 from sys import argv
 
 
 def top_ten(subreddit):
-    """returns number of subscribers for a given subreddit"""
+    """prints titles of first 10 hot posts listed for a given subreddit"""
     r_subreddit = get('http://www.reddit.com/r/{}/hot.json'.
                       format(subreddit), headers={'User-Agent': 'Mybot'})
     try:
