@@ -31,15 +31,11 @@ def count_words(subreddit, word_list, after=None, match_dict={}):
 
         for i in range(len(sub_dict['data']['children'])):
             title_string = sub_dict['data']['children'][i]['data']['title']
-            search_list = title_string.split()
-            for word in search_list:
-                for w in word_list:
-                    if w.lower() == word.lower():
-                        match_dict[w] += 1
+            search_list = title_string.lower().split()
+            for w in word_list:
+                match_dict[w] += search_list.count(w.lower())
 
-        if after is not None:
-            count_words(subreddit, word_list, after, match_dict)
-        else:
+        if after is None:
             descend_dict = OrderedDict(sorted(match_dict.items(),
                                               key=lambda x: x[1],
                                               reverse=True))
@@ -51,11 +47,7 @@ def count_words(subreddit, word_list, after=None, match_dict={}):
                     zero_count += 1
             if zero_count == len(descend_dict):
                 print()
-
+        else:
+            count_words(subreddit, word_list, after, match_dict)
     except:
         print()
-
-'''
-if __name__ == '__main__':
-    count_words('programming', ['sdfd', 'sdf', 'sdf','sdf', 'dfd'])
-'''
