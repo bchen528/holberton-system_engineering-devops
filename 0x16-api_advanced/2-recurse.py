@@ -11,16 +11,10 @@ def recurse(subreddit, hot_list=[], after=None):
     """returns a list containing the titles of all hot articles
     for a given subreddit"""
     try:
-        if after is None:
-            r_before = get('http://www.reddit.com/r/{}/hot.json?limit=100'.
-                           format(subreddit, after),
-                           headers={'User-Agent': 'bc'})
-            subreddit_dict = r_before.json()
-        else:
-            r_after = get('https://www.reddit.com/r/{}/hot.json?limit=100&&'
-                          'after={}'.format(subreddit, after),
-                          headers={'User-Agent': 'bc'})
-            subreddit_dict = r_after.json()
+        r = get('https://www.reddit.com/r/{}/hot.json?limit=100&&'
+                'after={}'.format(subreddit, after),
+                headers={'User-Agent': 'bc'})
+        subreddit_dict = r.json()
 
         for i in range(len(subreddit_dict['data']['children'])):
             hot_list.append(subreddit_dict['data']['children'][i]

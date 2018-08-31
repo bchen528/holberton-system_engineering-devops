@@ -5,7 +5,6 @@ keywords (case-insensitive, delimited by spaces)
 """
 from collections import OrderedDict
 from requests import get
-from sys import argv
 
 
 def count_words(subreddit, word_list, after=None, match_dict={}, flag=0):
@@ -18,18 +17,11 @@ def count_words(subreddit, word_list, after=None, match_dict={}, flag=0):
         match_dict (dict): dictionary of frequency of words from word_list
         flag (int): indicate when match_dict is complete
     """
-
     try:
-        if after is None:
-            r_before = get('http://www.reddit.com/r/{}/hot.json?limit=100'.
-                           format(subreddit),
-                           headers={'User-Agent': 'bc'})
-            sub_dict = r_before.json()
-        else:
-            r_after = get('https://www.reddit.com/r/{}/hot.json?limit=100&&'
-                          'after={}'.format(subreddit, after),
-                          headers={'User-Agent': 'bc'})
-            sub_dict = r_after.json()
+        r = get('https://www.reddit.com/r/{}/hot.json?limit=100&&'
+                'after={}'.format(subreddit, after),
+                headers={'User-Agent': 'bc'})
+        sub_dict = r.json()
 
         if after is None and match_dict != {}:
             descend_dict = OrderedDict(sorted(match_dict.items(),
@@ -44,7 +36,7 @@ def count_words(subreddit, word_list, after=None, match_dict={}, flag=0):
                 print()
             flag = 1
 
-        if after is None and match_dict == {}:
+        if match_dict == {}:
             for w in word_list:
                 match_dict[w] = 0
 
