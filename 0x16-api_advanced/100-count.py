@@ -10,6 +10,7 @@ from requests import get
 def count_words(subreddit, word_list, after=None, match_dict={}, flag=0):
     """parses the title of all hot articles, and prints a sorted count of given
     keywords (case-insensitive, delimited by spaces)"""
+
     try:
         if after is None:
             r_before = get('http://www.reddit.com/r/{}/hot.json?limit=100'.
@@ -25,9 +26,14 @@ def count_words(subreddit, word_list, after=None, match_dict={}, flag=0):
         if after is None and match_dict != {}:
             descend_dict = OrderedDict(sorted(match_dict.items(),
                                        key=lambda x: x[1], reverse=True))
+            zero_count = 0
             for k, v in descend_dict.items():
                 if v != 0:
                     print("{}: {}".format(k, v))
+                else:
+                    zero_count += 1
+            if zero_count == len(descend_dict):
+                print()
             flag = 1
 
         if after is None and match_dict == {}:
@@ -47,3 +53,8 @@ def count_words(subreddit, word_list, after=None, match_dict={}, flag=0):
 
     except:
         print()
+
+'''
+if __name__ == '__main__':
+    count_words('programming', ['sdfd', 'sdf', 'sdf','sdf', 'dfd'])
+'''
