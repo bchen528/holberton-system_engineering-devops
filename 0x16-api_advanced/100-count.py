@@ -5,11 +5,19 @@ keywords (case-insensitive, delimited by spaces)
 """
 from collections import OrderedDict
 from requests import get
+from sys import argv
 
 
 def count_words(subreddit, word_list, after=None, match_dict={}, flag=0):
     """parses the title of all hot articles, and prints a sorted count of given
-    keywords (case-insensitive, delimited by spaces)"""
+    keywords (case-insensitive, delimited by spaces)
+    Args:
+        subreddit (str): subreddit
+        word_list (list): list of words to count occurrences for
+        after (str): refer to next page
+        match_dict (dict): dictionary of frequency of words from word_list
+        flag (int): indicate when match_dict is complete
+    """
 
     try:
         if after is None:
