@@ -47,8 +47,3 @@ def count_words(subreddit, word_list, after=None, match_dict={}, flag=0):
 
     except:
         print()
-
-"""
-if __name__ == '__main__':
-    count_words('programming', ['python', 'java', 'javascript','scala'])
-"""
