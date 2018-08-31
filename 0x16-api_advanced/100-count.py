@@ -52,4 +52,4 @@ def count_words(subreddit, word_list, after=None, match_dict={}):
         else:
             count_words(subreddit, word_list, after, match_dict)
     except:
-        print()
+        pass
