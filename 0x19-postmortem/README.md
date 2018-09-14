@@ -6,7 +6,7 @@ A practice evaluation of a debugging task
 ### Summary
 A Wordpress website running on a LAMP stack returned a 500 Internal Server Error during 0900–1300 PST on Sept. 11, 2018. 100% of users were unable to access the website from their end. The main cause was a typo in the /var/www/html/wp-settings.php file.
 
-###Timeline
+### Timeline
 0900 - First user report of 500 error while attempting to access website on Chrome web browser. Confirmed error by running curl -sI localhost.
 
 ![img](https://cdn-images-1.medium.com/max/1600/1*DsPxPOf6xfNCwYa_MJOKDw.png)
@@ -45,7 +45,7 @@ should be
 
 1300 - Submitted script. Case closed.
 
-###Root cause
+### Root cause
 
 Typo on line 137 of /var/www/html/wp-settings.php:
 
@@ -55,11 +55,11 @@ should be
 
 `require_once(/var/www/html/wp-includes/calss-wp-locale.php)`
 
-###Resolution
+### Resolution
 
 * Wrote puppet script to utilizes the bash command sed to replace the erroneous string with the correct string.
 
-###Corrective/preventive measures
+### Corrective/preventive measures
 
 * Turn on debug mode in /var/www/html/wp-config.php prior to deploying website to check script functionality. This will allow our engineers to identify and fix errors prior to site deployment, which would improve customer satisfaction.
 * Check host metrics in SumoLogic to confirm site activity: no site activity would provide a big clue in this case.
