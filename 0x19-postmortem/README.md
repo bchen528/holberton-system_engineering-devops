@@ -30,7 +30,9 @@ A Wordpress website running on a LAMP stack returned a 500 Internal Server Error
 1116 - Discovered typo on line 137 of the /var/www/html/wp-settings.php file:
 
 `require_once(/var/www/html/wp-includes/calss-wp-locale.phpp)`
+
 should be
+
 `require_once(/var/www/html/wp-includes/calss-wp-locale.php)`
 
 1200 - Wrote a puppet script that replaces the erroneous string with the correct string. Executed script to implement changes.
