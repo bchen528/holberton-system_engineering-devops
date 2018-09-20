@@ -10,6 +10,18 @@ respawn
 setuid ubuntu
 setgid www-data
 
-env PATH=/home/ubuntu/AirBnB_clone_v4/airbnb4_env/bin
-chdir /home/ubuntu/AirBnB_clone_v4/web_dynamic
-exec gunicorn --bind 0.0.0.0:8003 2-hbnb:app
+#env PATH=/home/ubuntu/AirBnB_clone_v4/airbnb4_env/bin
+env HBNB_MYSQL_USER=hbnb_dev
+env HBNB_MYSQL_PWD=hbnb_dev_pwd
+env HBNB_MYSQL_HOST=localhost
+env HBNB_MYSQL_DB=hbnb_dev_db
+env HBNB_TYPE_STORAGE=db
+env HBNB_API_PORT=8002
+
+script
+    cd /home/ubuntu/AirBnB_clone_v4/
+    gunicorn --bind 0.0.0.0:8002 api.v1.app:app
+end script
+
+chdir /home/ubuntu/AirBnB_clone_v4/
+exec gunicorn --bind 0.0.0.0:8003 web_dynamic.2-hbnb:app

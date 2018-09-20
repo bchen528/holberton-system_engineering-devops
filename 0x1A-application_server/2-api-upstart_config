@@ -1,4 +1,4 @@
-# Upstart config that starts a Gunicorn instance to serve 
+# Upstart config that starts a Gunicorn instance to serve
 # api/v1/app.py from AirBnB_clone_v3
 
 description "Gunicorn application server running AirBnB_clone_v3"
@@ -10,7 +10,12 @@ respawn
 setuid ubuntu
 setgid www-data
 
-env PATH=/home/ubuntu/AirBnB_clone_v3/airbnb3_env/bin
-chdir /home/ubuntu/AirBnB_clone_v3/api/v1
-exec gunicorn --bind 0.0.0.0:8002 app:app
+env HBNB_MYSQL_USER=hbnb_dev
+env HBNB_MYSQL_PWD=hbnb_dev_pwd
+env HBNB_MYSQL_HOST=localhost
+env HBNB_MYSQL_DB=hbnb_dev_db
+env HBNB_TYPE_STORAGE=db
+env HBNB_API_PORT=8002
 
+chdir /home/ubuntu/AirBnB_clone_v3/
+exec gunicorn --bind 0.0.0.0:8002 api.v1.app:app
